@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     environment {
-    DOCKERHUB_CREDENTIALS = credentials('navyaa14-docker')
+    DOCKERHUB_CREDENTIALS = credentials('balajis13-docker')
     }
     stages { 
         stage('SCM Checkout') {
@@ -25,6 +25,12 @@ pipeline {
                 sh 'docker push balajis13/nodeapp:$BUILD_NUMBER'
             }
         }
+        stage('deploy image') {
+            steps{
+                sh 'docker run -d -p 8980:3000 balajis13/nodeapp:$BUILD_NUMBER'
+            }
+        }
+        
 }
 post {
         always {
@@ -32,4 +38,3 @@ post {
         }
     }
 }
-
