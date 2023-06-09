@@ -6,13 +6,13 @@ pipeline {
     stages { 
         stage('SCM Checkout') {
             steps{
-            git 'https://github.com/BalajiiBharath/nodejs-demo.git'
+            git 'https://github.com/NavyaDeveloper/nodejs-demo.git'
             }
         }
 
         stage('Build docker image') {
             steps {  
-                sh 'docker build -t navyaa14/nodeapp:$BUILD_NUMBER .'
+                sh 'docker build -t balajis13/nodeapp:$BUILD_NUMBER .'
             }
         }
         stage('login to dockerhub') {
@@ -22,7 +22,7 @@ pipeline {
         }
         stage('push image') {
             steps{
-                sh 'docker push navyaa14/nodeapp:$BUILD_NUMBER'
+                sh 'docker push balajis13/nodeapp:$BUILD_NUMBER'
             }
         }
 }
