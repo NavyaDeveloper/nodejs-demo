@@ -27,7 +27,7 @@ pipeline {
         }
         stage('deploy image') {
             steps{
-                sh 'docker run -d -p 8980:3000 balajis13/nodeapp:$BUILD_NUMBER'
+                sh 'docker run -d -p 8981:3000 balajis13/nodeapp:$BUILD_NUMBER'
             }
         }
         
