@@ -12,7 +12,7 @@ pipeline {
 
         stage('Build docker image') {
             steps {  
-                sh 'docker build -t valaxy/nodeapp:$BUILD_NUMBER .'
+                sh 'docker build -t navyaa14/nodeapp:$BUILD_NUMBER .'
             }
         }
         stage('login to dockerhub') {
